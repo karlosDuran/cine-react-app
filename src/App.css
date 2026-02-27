@@ -93,10 +93,12 @@
     font-size: 1.5rem;
     letter-spacing: 3px;
   }
+
   .nav-link {
     font-size: 0.9rem;
     padding: 0.5rem 1.1rem;
   }
+
   .header-nav {
     gap: 4px;
   }
@@ -128,12 +130,10 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 11, 11, 0.4) 0%,
-    rgba(11, 11, 11, 0.65) 50%,
-    rgba(11, 11, 11, 1) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(11, 11, 11, 0.4) 0%,
+      rgba(11, 11, 11, 0.65) 50%,
+      rgba(11, 11, 11, 1) 100%);
   z-index: 1;
 }
 
@@ -179,6 +179,7 @@
   .hero {
     min-height: 60vh;
   }
+
   .hero-content {
     padding: var(--space-2xl) var(--space-md);
   }
@@ -311,7 +312,7 @@
   left: 0;
   right: 0;
   padding: var(--space-sm);
-  background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
   opacity: 0;
   transform: translateY(8px);
   transition: all var(--transition-smooth);
@@ -389,9 +390,11 @@
   .card-content {
     padding: 0.75rem 0.85rem;
   }
+
   .card-title {
     font-size: 0.85rem;
   }
+
   .card-hover-title {
     font-size: 0.95rem;
   }
@@ -430,12 +433,10 @@
 .featured-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(11, 11, 11, 0.95) 0%,
-    rgba(11, 11, 11, 0.7) 40%,
-    rgba(11, 11, 11, 0.2) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(11, 11, 11, 0.95) 0%,
+      rgba(11, 11, 11, 0.7) 40%,
+      rgba(11, 11, 11, 0.2) 100%);
 }
 
 .featured-card-content {
@@ -508,18 +509,19 @@
   .featured-card {
     min-height: 260px;
   }
+
   .featured-card-overlay {
-    background: linear-gradient(
-      0deg,
-      rgba(11, 11, 11, 0.95) 0%,
-      rgba(11, 11, 11, 0.5) 60%,
-      transparent 100%
-    );
+    background: linear-gradient(0deg,
+        rgba(11, 11, 11, 0.95) 0%,
+        rgba(11, 11, 11, 0.5) 60%,
+        transparent 100%);
   }
+
   .featured-card-content {
     max-width: 100%;
     padding: var(--space-md);
   }
+
   .featured-desc {
     display: none;
   }
@@ -641,11 +643,9 @@
 .promo-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(11, 11, 11, 0.95) 0%,
-    rgba(11, 11, 11, 0.3) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(11, 11, 11, 0.95) 0%,
+      rgba(11, 11, 11, 0.3) 100%);
 }
 
 .promo-card-content {
@@ -850,14 +850,12 @@
   width: 80%;
   max-width: 600px;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(229, 9, 20, 0.3) 30%,
-    rgba(229, 9, 20, 0.5) 50%,
-    rgba(229, 9, 20, 0.3) 70%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(229, 9, 20, 0.3) 30%,
+      rgba(229, 9, 20, 0.5) 50%,
+      rgba(229, 9, 20, 0.3) 70%,
+      transparent 100%);
 }
 
 .food-hero-banner {
@@ -882,12 +880,10 @@
 .food-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(11, 11, 11, 0.92) 0%,
-    rgba(11, 11, 11, 0.3) 55%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(11, 11, 11, 0.92) 0%,
+      rgba(11, 11, 11, 0.3) 55%,
+      transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1007,4 +1003,470 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
+}
+
+/* ═══════════════════════════════════════════════
+   CARTELERA — Controles (filtro + favoritos)
+   ═══════════════════════════════════════════════ */
+.cartelera-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.filter-select {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  appearance: auto;
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+}
+
+.favorites-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+}
+
+.favorites-icon {
+  font-size: 1rem;
+}
+
+.favorites-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════
+   CARTELERA — Lista de películas (nueva vista)
+   ═══════════════════════════════════════════════ */
+.cartelera-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cartelera-movie-card {
+  display: flex;
+  gap: var(--space-md);
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.cartelera-movie-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cartelera-movie-poster {
+  position: relative;
+  flex-shrink: 0;
+  width: 160px;
+}
+
+.cartelera-movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.fav-btn:hover {
+  transform: scale(1.15);
+  background: rgba(229, 9, 20, 0.3);
+}
+
+.fav-btn.fav-active {
+  background: rgba(229, 9, 20, 0.5);
+  border-color: rgba(229, 9, 20, 0.6);
+  animation: fav-pulse 0.4s ease;
+}
+
+@keyframes fav-pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cartelera-movie-info {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.cartelera-movie-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.cartelera-movie-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.meta-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  padding: 0.15rem 0.5rem;
+}
+
+.meta-badge.accent {
+  color: var(--accent-primary);
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+.btn-toggle-desc {
+  background: none;
+  border: none;
+  color: var(--accent-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  text-align: left;
+  transition: color var(--transition-fast);
+  width: fit-content;
+}
+
+.btn-toggle-desc:hover {
+  color: var(--accent-bright);
+}
+
+.cartelera-movie-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* Responsive cartelera cards */
+@media (max-width: 600px) {
+  .cartelera-movie-card {
+    flex-direction: column;
+  }
+
+  .cartelera-movie-poster {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   FORMULARIO — Compra de Boletos
+   ═══════════════════════════════════════════════ */
+.compra-form {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.form-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.form-input {
+  width: 100%;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.input-error {
+  border-color: #ef4444 !important;
+}
+
+.error-msg {
+  display: block;
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-top: 0.3rem;
+}
+
+.form-preview {
+  background: rgba(229, 9, 20, 0.08);
+  border: 1px solid rgba(229, 9, 20, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.form-preview p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+}
+
+.form-preview-note {
+  font-size: 0.75rem !important;
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-md);
+}
+
+/* ═══════════════════════════════════════════════
+   RESUMEN DE COMPRA
+   ═══════════════════════════════════════════════ */
+.compra-resumen {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.resumen-icon {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.resumen-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.resumen-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-lg);
+}
+
+.resumen-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: left;
+  margin-bottom: var(--space-md);
+}
+
+.resumen-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+}
+
+.resumen-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.resumen-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.resumen-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0.5rem 0;
+}
+
+.resumen-total .resumen-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.resumen-total .resumen-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+/* ═══════════════════════════════════════════════
+   NOTICIAS DEL CINE
+   ═══════════════════════════════════════════════ */
+.noticias-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .noticias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .noticias-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.noticia-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: all var(--transition-smooth);
+  cursor: default;
+}
+
+.noticia-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.noticia-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-xs);
+}
+
+.noticia-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  line-height: 1.3;
+}
+
+.noticia-content {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Loading spinner */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl);
+  gap: var(--space-sm);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }

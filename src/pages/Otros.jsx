@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
 import { promotions, memberships, formats } from "../data/data";
+import promoFamilia from "../assets/images/promo_familia.jpg";
 
 const staggerContainer = {
   hidden: {},
@@ -31,7 +32,7 @@ function Otros() {
             className="hero-bg"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1920&q=80')",
+                `url('${promoFamilia}')`,
             }}
           />
           <div className="hero-overlay" />

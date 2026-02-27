@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
 import { foods } from "../data/data";
-import alimentosHero from "../assets/images/alimentos_hero.jpg";
+import alimentosHero from "../assets/images/alimentos_hero.png";
+import palomitasImg from "../assets/images/palomitas.jpg";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -41,7 +42,7 @@ function Alimentos() {
             className="hero-bg"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1585647347483-22b66260dfff?w=1920&q=80')",
+                `url('${palomitasImg}')`,
             }}
           />
           <div className="hero-overlay" />

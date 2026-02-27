@@ -3,13 +3,31 @@
 // ─────────────────────────────────────────────
 
 // Películas — imágenes locales de /assets/images
-import elFinDelMundo from '../assets/images/el_fin_del_mundo.jpg';
-import noVendoCigarros from '../assets/images/no_vendo_cigarros.jpg';
-import granTurismo from '../assets/images/gran_turismo.jpg';
-import superBowl from '../assets/images/super_bowl.jpg';
+import elFinDelMundo from '../assets/images/el_fin_del_mundo.png';
+import noVendoCigarros from '../assets/images/no_vendo_cigarros.png';
+import granTurismo from '../assets/images/gran_turismo.png';
+import superBowl from '../assets/images/super_bowl.png';
 import spiderman from '../assets/images/spiderman.jpg';
 import shingeki from '../assets/images/shingeki.jpg';
 import bobEsponja from '../assets/images/bob_esponja.jpg';
+import rapidosFuriosos from '../assets/images/rapidos_furiosos.png';
+import coco from '../assets/images/coco.jpg';
+import intensamente from '../assets/images/intensamente.png';
+import jurassicWorld from '../assets/images/jurassic_world.png';
+
+// Alimentos — imágenes locales
+import refrescoGrande from '../assets/images/refresco_grande.jpg';
+import iceeCereza from '../assets/images/icee_cereza.jpg';
+import hotDog from '../assets/images/hot_dog.png';
+import nachos from '../assets/images/nachos.jpg';
+import palomitas from '../assets/images/palomitas.jpg';
+import chocolates from '../assets/images/chocolates.jpg';
+
+// Promociones — imágenes locales
+import promoCine from '../assets/images/promo_cine.jpg';
+import promoCombo from '../assets/images/promo_combo.jpg';
+import promoFamilia from '../assets/images/promo_familia.jpg';
+import promoEstrenos from '../assets/images/promo_estrenos.jpg';
 
 // Fallback SVG en caso de que la imagen falle
 export const FALLBACK_IMAGE = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='450' viewBox='0 0 300 450'%3E%3Crect fill='%23141414' width='300' height='450'/%3E%3Ctext fill='%23333' font-family='sans-serif' font-size='14' text-anchor='middle' x='150' y='220'%3EImagen no disponible%3C/text%3E%3Ccircle cx='150' cy='190' r='25' stroke='%23333' stroke-width='2' fill='none'/%3E%3C/svg%3E";
@@ -85,6 +103,46 @@ export const movies = [
     description:
       "Bob Esponja y Patricio se embarcan en una misión para recuperar a Gary, el caracol secuestrado.",
   },
+  {
+    id: 8,
+    title: "Rápidos y Furiosos",
+    image: rapidosFuriosos,
+    genre: "Acción",
+    rating: "B15",
+    duration: "130 min",
+    description:
+      "La velocidad no tiene límites. Dominic Toretto y su equipo se enfrentan a su rival más peligroso en las calles de Tokio.",
+  },
+  {
+    id: 9,
+    title: "Coco",
+    image: coco,
+    genre: "Animación",
+    rating: "AA",
+    duration: "105 min",
+    description:
+      "Miguel sueña con ser músico y se embarca en una aventura en la Tierra de los Muertos para descubrir la historia de su familia.",
+  },
+  {
+    id: 10,
+    title: "Intensamente",
+    image: intensamente,
+    genre: "Animación",
+    rating: "AA",
+    duration: "95 min",
+    description:
+      "Dentro de la mente de Riley, cinco emociones trabajan juntas para guiarla en su vida diaria. ¿Podrá Alegría mantener el equilibrio?",
+  },
+  {
+    id: 11,
+    title: "Jurassic World",
+    image: jurassicWorld,
+    genre: "Acción",
+    rating: "B",
+    duration: "124 min",
+    description:
+      "El parque temático de dinosaurios abre sus puertas, pero cuando un nuevo dinosaurio híbrido escapa, el caos se desata.",
+  },
 ];
 
 // ─────────────────────────────────────────────
@@ -96,13 +154,13 @@ export const foods = {
       id: 1,
       name: "Refresco Grande",
       price: "$85",
-      image: "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&q=80",
+      image: refrescoGrande,
     },
     {
       id: 2,
       name: "Icee de Cereza",
       price: "$95",
-      image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400&q=80",
+      image: iceeCereza,
     },
   ],
   comestibles: [
@@ -110,13 +168,13 @@ export const foods = {
       id: 3,
       name: "Hot Dog Jumbo",
       price: "$75",
-      image: "https://images.unsplash.com/photo-1612392062126-2f5b0eedee73?w=400&q=80",
+      image: hotDog,
     },
     {
       id: 4,
       name: "Nachos con Queso",
       price: "$80",
-      image: "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=400&q=80",
+      image: nachos,
     },
   ],
   snacks: [
@@ -124,13 +182,13 @@ export const foods = {
       id: 5,
       name: "Palomitas Mantequilla",
       price: "$90",
-      image: "https://images.unsplash.com/photo-1585647347483-22b66260dfff?w=400&q=80",
+      image: palomitas,
     },
     {
       id: 6,
       name: "Chocolates M&M's",
       price: "$45",
-      image: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400&q=80",
+      image: chocolates,
     },
   ],
 };
@@ -146,7 +204,7 @@ export const promotions = [
       "Todos los martes, disfruta 2×1 en todas las salas tradicionales. Válido presentando tu Tarjeta Invitado Especial.",
     icon: "🎟️",
     badge: "Popular",
-    bgImage: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80",
+    bgImage: promoCine,
   },
   {
     id: 2,
@@ -155,7 +213,7 @@ export const promotions = [
       "2 Refrescos grandes + 1 Palomitas grandes + 1 Nachos por solo $250. Perfecto para compartir.",
     icon: "🍿",
     badge: "Ahorro",
-    bgImage: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=800&q=80",
+    bgImage: promoCombo,
   },
   {
     id: 3,
@@ -164,7 +222,7 @@ export const promotions = [
       "De lunes a viernes antes de las 3pm, boletos a precio especial para toda la familia.",
     icon: "👨‍👩‍👧‍👦",
     badge: "Familia",
-    bgImage: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80",
+    bgImage: promoFamilia,
   },
   {
     id: 4,
@@ -173,7 +231,7 @@ export const promotions = [
       "Sé el primero en ver los estrenos más esperados. Premieres exclusivas cada jueves.",
     icon: "🌙",
     badge: "Exclusivo",
-    bgImage: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80",
+    bgImage: promoEstrenos,
   },
 ];
 

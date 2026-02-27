@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import MovieCard from "../components/MovieCard";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
 import { movies, FALLBACK_IMAGE } from "../data/data";
 import { useNavigate } from "react-router-dom";
+import heroCine from "../assets/images/hero_cine.jpg";
+import palomitasImg from "../assets/images/palomitas.jpg";
 
 const stagger = {
   hidden: {},
@@ -23,6 +25,48 @@ function Home() {
 
   const [featuredImgError, setFeaturedImgError] = useState(false);
 
+  // ── useEffect + fetch: Noticias del cine desde JSONPlaceholder ──
+  const [noticias, setNoticias] = useState([]);
+  const [cargandoNoticias, setCargandoNoticias] = useState(true);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts?_limit=4")
+      .then((response) => response.json())
+      .then((data) => {
+        // Transformar los datos del API en "noticias de cine"
+        const temasCine = [
+          {
+            titulo: "Nuevos estrenos llegan a Cinemex este fin de semana",
+            icono: "🎬",
+          },
+          {
+            titulo: "IMAX presenta tecnología láser de nueva generación",
+            icono: "🖥️",
+          },
+          {
+            titulo: "Festival de cine independiente mexicano en salas selectas",
+            icono: "🇲🇽",
+          },
+          {
+            titulo: "Preventa exclusiva: los blockbusters más esperados de 2026",
+            icono: "🎟️",
+          },
+        ];
+        const noticiasTransformadas = data.map((post, index) => ({
+          id: post.id,
+          titulo: temasCine[index]?.titulo || post.title,
+          contenido: post.body,
+          icono: temasCine[index]?.icono || "📰",
+        }));
+        setNoticias(noticiasTransformadas);
+        setCargandoNoticias(false);
+      })
+      .catch((error) => {
+        console.error("Error al cargar noticias:", error);
+        setCargandoNoticias(false);
+      });
+  }, []);
+
   return (
     <PageTransition>
       <main>
@@ -34,7 +78,7 @@ function Home() {
             className="hero-bg"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920&q=80')",
+                `url('${heroCine}')`,
             }}
           />
           <div className="hero-overlay" />
@@ -211,7 +255,7 @@ function Home() {
               onClick={() => navigate("/alimentos")}
             >
               <img
-                src="https://images.unsplash.com/photo-1585647347483-22b66260dfff?w=1920&q=80"
+                src={palomitasImg}
                 alt="Dulcería Cinemex"
                 loading="lazy"
               />
@@ -232,6 +276,42 @@ function Home() {
             </motion.div>
           </Section>
         </div>
+
+        {/* ═══════════════════════════════════════
+            NOTICIAS DEL CINE (fetch + useEffect)
+            ═══════════════════════════════════════ */}
+        <Section title="Noticias del Cine">
+          {cargandoNoticias ? (
+            <div className="loading-container">
+              <div className="loading-spinner" />
+              <p className="loading-text">Cargando noticias...</p>
+            </div>
+          ) : (
+            <motion.div
+              className="noticias-grid"
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {noticias.map((noticia) => (
+                <motion.div
+                  key={noticia.id}
+                  className="noticia-card"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                  }}
+                  whileHover={{ y: -4 }}
+                >
+                  <div className="noticia-icon">{noticia.icono}</div>
+                  <h3 className="noticia-title">{noticia.titulo}</h3>
+                  <p className="noticia-content">{noticia.contenido}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </Section>
 
         {/* ── Footer ── */}
         <footer className="footer">

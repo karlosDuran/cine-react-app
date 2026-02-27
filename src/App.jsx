@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Cartelera from "./pages/Cartelera";
 import Detalle from "./pages/Detalle";
 import Alimentos from "./pages/Alimentos";
+import ComprarBoletos from "./pages/ComprarBoletos";
 import Otros from "./pages/Otros";
 import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
@@ -20,6 +21,7 @@ function AnimatedRoutes() {
         <Route path="/alimentos" element={<Alimentos />} />
         <Route path="/otros" element={<Otros />} />
         <Route path="/detalle" element={<Detalle />} />
+        <Route path="/comprar" element={<ComprarBoletos />} />
       </Routes>
     </AnimatePresence>
   );
