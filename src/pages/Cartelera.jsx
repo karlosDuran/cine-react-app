@@ -237,7 +237,7 @@ function Cartelera() {
                       genre={movie.genre}
                       rating={movie.rating}
                       duration={movie.duration}
-                      onVerDetalle={() => navigate("/detalle")}
+                      onVerDetalle={() => navigate(`/pelicula/${movie.id}`)}
                     />
                   ))}
                 </motion.div>

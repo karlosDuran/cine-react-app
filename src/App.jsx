@@ -20,7 +20,7 @@ function AnimatedRoutes() {
         <Route path="/cartelera" element={<Cartelera />} />
         <Route path="/alimentos" element={<Alimentos />} />
         <Route path="/otros" element={<Otros />} />
-        <Route path="/detalle" element={<Detalle />} />
+        <Route path="/pelicula/:id" element={<Detalle />} />
         <Route path="/comprar" element={<ComprarBoletos />} />
       </Routes>
     </AnimatePresence>

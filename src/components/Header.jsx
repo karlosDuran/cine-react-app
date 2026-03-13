@@ -1,8 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
-  const location = useLocation();
-
   const links = [
     { to: "/", label: "Inicio" },
     { to: "/cartelera", label: "Cartelera" },
@@ -13,19 +11,22 @@ function Header() {
   return (
     <header className="header">
       <div className="header-inner">
-        <Link to="/" className="header-logo">
+        <NavLink to="/" className="header-logo">
           Cine<span>mex</span>
-        </Link>
+        </NavLink>
 
         <nav className="header-nav">
           {links.map((link) => (
-            <Link
+            <NavLink
               key={link.to}
               to={link.to}
-              className={`nav-link ${location.pathname === link.to ? "active" : ""}`}
+              end={link.to === "/"}
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
             >
               {link.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
       </div>

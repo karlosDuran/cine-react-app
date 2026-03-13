@@ -140,7 +140,7 @@ function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            onClick={() => navigate("/detalle")}
+            onClick={() => navigate(`/pelicula/${featured.id}`)}
           >
             <div className="featured-card-bg">
               <img
@@ -164,7 +164,7 @@ function Home() {
                   className="btn"
                   onClick={(e) => {
                     e.stopPropagation();
-                    navigate("/detalle");
+                    navigate(`/pelicula/${featured.id}`);
                   }}
                 >
                   Comprar boletos
@@ -173,7 +173,7 @@ function Home() {
                   className="btn btn-outline"
                   onClick={(e) => {
                     e.stopPropagation();
-                    navigate("/detalle");
+                    navigate(`/pelicula/${featured.id}`);
                   }}
                 >
                   Ver trailer
@@ -202,7 +202,7 @@ function Home() {
                 genre={movie.genre}
                 rating={movie.rating}
                 duration={movie.duration}
-                onVerDetalle={() => navigate("/detalle")}
+                onVerDetalle={() => navigate(`/pelicula/${movie.id}`)}
               />
             ))}
           </motion.div>
@@ -224,7 +224,7 @@ function Home() {
                   genre={movie.genre}
                   rating={movie.rating}
                   duration={movie.duration}
-                  onVerDetalle={() => navigate("/detalle")}
+                  onVerDetalle={() => navigate(`/pelicula/${movie.id}`)}
                 />
               ))}
             </motion.div>
