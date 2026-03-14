@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import MovieCard from "../components/MovieCard";
+import MovieCarousel from "../components/MovieCarousel";
+import FeaturedCarousel from "../components/FeaturedCarousel";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
 import { movies, FALLBACK_IMAGE } from "../data/data";
@@ -18,10 +20,8 @@ function Home() {
 
   // Película destacada principal (la primera)
   const featured = movies[0];
-  // Preview de cartelera (las siguientes 4)
-  const carteleraPreview = movies.slice(1, 5);
-  // Resto de películas para grid secundario
-  const moreMovies = movies.slice(5);
+  // Todas las demás películas para el carrusel
+  const peliculas = movies.slice(1);
 
   const [featuredImgError, setFeaturedImgError] = useState(false);
 
@@ -131,104 +131,23 @@ function Home() {
         </div>
 
         {/* ═══════════════════════════════════════
-            PELÍCULA DESTACADA (Featured)
+            DESTACADA DE LA SEMANA (Carrusel Hero)
             ═══════════════════════════════════════ */}
-        <Section title="Destacada de la Semana">
-          <motion.div
-            className="featured-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            onClick={() => navigate(`/pelicula/${featured.id}`)}
-          >
-            <div className="featured-card-bg">
-              <img
-                src={featuredImgError ? FALLBACK_IMAGE : featured.image}
-                alt={featured.title}
-                onError={() => setFeaturedImgError(true)}
-              />
-            </div>
-            <div className="featured-card-overlay" />
-            <div className="featured-card-content">
-              <span className="featured-label">⭐ Destacada de la semana</span>
-              <h2 className="featured-title">{featured.title}</h2>
-              <p className="featured-desc">{featured.description}</p>
-              <div className="featured-meta">
-                <span className="featured-badge accent">{featured.rating}</span>
-                <span className="featured-badge">{featured.genre}</span>
-                <span className="featured-badge">{featured.duration}</span>
-              </div>
-              <div className="featured-actions">
-                <button
-                  className="btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate(`/pelicula/${featured.id}`);
-                  }}
-                >
-                  Comprar boletos
-                </button>
-                <button
-                  className="btn btn-outline"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate(`/pelicula/${featured.id}`);
-                  }}
-                >
-                  Ver trailer
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        </Section>
+        <FeaturedCarousel
+          movies={movies}
+          onMovieClick={(id) => navigate(`/pelicula/${id}`)}
+        />
 
         {/* ═══════════════════════════════════════
-            EN CARTELERA (Grid de películas)
+            ESTRENOS (Carrusel de películas)
             ═══════════════════════════════════════ */}
-        <Section title="En Cartelera">
-          <motion.div
-            className="grid-container"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {carteleraPreview.map((movie) => (
-              <MovieCard
-                key={movie.id}
-                title={movie.title}
-                image={movie.image}
-                genre={movie.genre}
-                rating={movie.rating}
-                duration={movie.duration}
-                onVerDetalle={() => navigate(`/pelicula/${movie.id}`)}
-              />
-            ))}
-          </motion.div>
-
-          {/* Películas adicionales */}
-          {moreMovies.length > 0 && (
-            <motion.div
-              className="grid-container mt-md"
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {moreMovies.map((movie) => (
-                <MovieCard
-                  key={movie.id}
-                  title={movie.title}
-                  image={movie.image}
-                  genre={movie.genre}
-                  rating={movie.rating}
-                  duration={movie.duration}
-                  onVerDetalle={() => navigate(`/pelicula/${movie.id}`)}
-                />
-              ))}
-            </motion.div>
-          )}
+        <Section title="Estrenos">
+          <MovieCarousel
+            movies={peliculas.map((movie) => ({
+              ...movie,
+              onVerDetalle: () => navigate(`/pelicula/${movie.id}`),
+            }))}
+          />
 
           <div className="text-center mt-lg">
             <button
@@ -313,10 +232,7 @@ function Home() {
           )}
         </Section>
 
-        {/* ── Footer ── */}
-        <footer className="footer">
-          <p className="footer-text">© 2026 CINEMEX — LA MAGIA DEL CINE</p>
-        </footer>
+
       </main>
     </PageTransition>
   );
