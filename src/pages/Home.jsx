@@ -5,7 +5,8 @@ import MovieCarousel from "../components/MovieCarousel";
 import FeaturedCarousel from "../components/FeaturedCarousel";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
-import { movies, FALLBACK_IMAGE } from "../data/data";
+import Button from "../components/Button";
+import { movies } from "../data/data";
 import { useNavigate } from "react-router-dom";
 import heroCine from "../assets/images/hero_cine.jpg";
 import palomitasImg from "../assets/images/palomitas.jpg";
@@ -22,8 +23,6 @@ function Home() {
   const featured = movies[0];
   // Todas las demás películas para el carrusel
   const peliculas = movies.slice(1);
-
-  const [featuredImgError, setFeaturedImgError] = useState(false);
 
   // ── useEffect + fetch: Noticias del cine desde JSONPlaceholder ──
   const [noticias, setNoticias] = useState([]);
@@ -114,18 +113,17 @@ function Home() {
               }}
               style={{ display: "flex", gap: "var(--space-sm)" }}
             >
-              <button
-                className="btn btn-lg"
+              <Button
+                text="Ver Cartelera"
+                size="lg"
                 onClick={() => navigate("/cartelera")}
-              >
-                Ver Cartelera
-              </button>
-              <button
-                className="btn btn-outline btn-lg"
+              />
+              <Button
+                text="Promociones"
+                variant="outline"
+                size="lg"
                 onClick={() => navigate("/otros")}
-              >
-                Promociones
-              </button>
+              />
             </motion.div>
           </div>
         </div>
@@ -150,12 +148,11 @@ function Home() {
           />
 
           <div className="text-center mt-lg">
-            <button
-              className="btn btn-outline"
+            <Button
+              text="Ver Cartelera Completa"
+              variant="outline"
               onClick={() => navigate("/cartelera")}
-            >
-              Ver Cartelera Completa
-            </button>
+            />
           </div>
         </Section>
 
@@ -189,7 +186,7 @@ function Home() {
                   Palomitas, snacks y bebidas premium para disfrutar al máximo
                 </p>
                 <div style={{ marginTop: "var(--space-sm)" }}>
-                  <span className="btn btn-sm">Ver menú</span>
+                  <Button text="Ver menú" size="sm" />
                 </div>
               </div>
             </motion.div>
@@ -231,7 +228,6 @@ function Home() {
             </motion.div>
           )}
         </Section>
-
 
       </main>
     </PageTransition>

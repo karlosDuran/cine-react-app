@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
+import Button from "../components/Button";
 import { promotions, memberships, formats } from "../data/data";
 import promoFamilia from "../assets/images/promo_familia.jpg";
 
@@ -118,9 +119,7 @@ function Otros() {
                     <li key={i}>{benefit}</li>
                   ))}
                 </ul>
-                <button className="btn btn-outline btn-sm">
-                  Más información
-                </button>
+                <Button text="Más información" variant="outline" size="sm" />
               </motion.div>
             ))}
           </motion.div>
@@ -154,10 +153,6 @@ function Otros() {
           </motion.div>
         </Section>
 
-        {/* ── Footer ── */}
-        <footer className="footer">
-          <p className="footer-text">© 2026 CINEMEX — LA MAGIA DEL CINE</p>
-        </footer>
       </main>
     </PageTransition>
   );

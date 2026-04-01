@@ -3,6 +3,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Button from "./Button";
 
 function FeaturedCarousel({ movies, onMovieClick }) {
     return (
@@ -34,24 +35,21 @@ function FeaturedCarousel({ movies, onMovieClick }) {
                                     <span className="featured-label">DESTACADA DE LA SEMANA ⭐</span>
                                     <h2 className="featured-slide-title">{movie.title}</h2>
                                     <div className="featured-actions">
-                                        <button
-                                            className="btn"
+                                        <Button
+                                            text="Comprar boletos"
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 onMovieClick(movie.id);
                                             }}
-                                        >
-                                            Comprar boletos
-                                        </button>
-                                        <button
-                                            className="btn btn-outline"
+                                        />
+                                        <Button
+                                            text="Ver trailer"
+                                            variant="outline"
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 onMovieClick(movie.id);
                                             }}
-                                        >
-                                            Ver trailer
-                                        </button>
+                                        />
                                     </div>
                                 </div>
                             </div>

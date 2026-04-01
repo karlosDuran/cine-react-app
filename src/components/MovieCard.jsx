@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FALLBACK_IMAGE } from "../data/data";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20, scale: 0.96 },

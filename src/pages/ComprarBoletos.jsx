@@ -2,10 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "../components/PageTransition";
 import Section from "../components/Section";
-import { movies } from "../data/data";
+import Button from "../components/Button";
+import { movies, horarios } from "../data/data";
 import { useNavigate, useLocation } from "react-router-dom";
-
-const horarios = ["12:00", "14:30", "17:00", "19:30", "22:00"];
 
 function ComprarBoletos() {
     const navigate = useNavigate();
@@ -266,16 +265,16 @@ function ComprarBoletos() {
 
                                 {/* Botones */}
                                 <div className="form-actions">
-                                    <button type="submit" className="btn btn-lg">
-                                        Confirmar Compra
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline"
+                                    <Button
+                                        text="Confirmar Compra"
+                                        type="submit"
+                                        size="lg"
+                                    />
+                                    <Button
+                                        text="← Volver a Cartelera"
+                                        variant="outline"
                                         onClick={() => navigate("/cartelera")}
-                                    >
-                                        ← Volver a Cartelera
-                                    </button>
+                                    />
                                 </div>
                             </motion.form>
                         ) : (
@@ -331,25 +330,22 @@ function ComprarBoletos() {
                                 </div>
 
                                 <div className="form-actions">
-                                    <button className="btn btn-lg" onClick={nuevaCompra}>
-                                        Nueva Compra
-                                    </button>
-                                    <button
-                                        className="btn btn-outline"
+                                    <Button
+                                        text="Nueva Compra"
+                                        size="lg"
+                                        onClick={nuevaCompra}
+                                    />
+                                    <Button
+                                        text="Ir al Inicio"
+                                        variant="outline"
                                         onClick={() => navigate("/")}
-                                    >
-                                        Ir al Inicio
-                                    </button>
+                                    />
                                 </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
                 </Section>
 
-                {/* ── Footer ── */}
-                <footer className="footer">
-                    <p className="footer-text">© 2026 CINEMEX — LA MAGIA DEL CINE</p>
-                </footer>
             </main>
         </PageTransition>
     );

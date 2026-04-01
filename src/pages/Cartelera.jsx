@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import MovieCard from "../components/MovieCard";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
+import Button from "../components/Button";
 import { movies } from "../data/data";
 import { useNavigate } from "react-router-dom";
 import promoCine from "../assets/images/promo_cine.jpg";
@@ -200,13 +201,11 @@ function Cartelera() {
                     </AnimatePresence>
 
                     {/* Botón comprar */}
-                    <button
-                      className="btn btn-sm"
+                    <Button
+                      text="🎟️ Comprar boletos"
+                      size="sm"
                       onClick={() => navigate("/comprar", { state: { movieId: movie.id } })}
-                      style={{ marginTop: "var(--space-xs)" }}
-                    >
-                      🎟️ Comprar boletos
-                    </button>
+                    />
                   </div>
                 </motion.div>
               ))}
@@ -246,10 +245,6 @@ function Cartelera() {
           )}
         </AnimatePresence>
 
-        {/* ── Footer ── */}
-        <footer className="footer">
-          <p className="footer-text">© 2026 CINEMEX — LA MAGIA DEL CINE</p>
-        </footer>
       </main>
     </PageTransition>
   );

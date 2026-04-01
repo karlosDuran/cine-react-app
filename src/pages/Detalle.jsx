@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import PageTransition from "../components/PageTransition";
+import Button from "../components/Button";
 import { useParams, useNavigate } from "react-router-dom";
 import { movies, FALLBACK_IMAGE } from "../data/data";
 import { useState } from "react";
@@ -48,9 +49,7 @@ function Detalle() {
             >
               No se encontró una película con el ID <strong>{id}</strong>.
             </p>
-            <button className="btn" onClick={() => navigate("/cartelera")}>
-              Ver Cartelera
-            </button>
+            <Button text="Ver Cartelera" onClick={() => navigate("/cartelera")} />
           </motion.div>
         </main>
       </PageTransition>
@@ -72,13 +71,12 @@ function Detalle() {
           transition={{ duration: 0.6 }}
         >
           {/* Botón volver */}
-          <button
-            className="btn btn-secondary btn-sm"
+          <Button
+            text="← Volver"
+            variant="secondary"
+            size="sm"
             onClick={() => navigate(-1)}
-            style={{ marginBottom: "var(--space-lg)" }}
-          >
-            ← Volver
-          </button>
+          />
 
           {/* Card principal del detalle */}
           <div
@@ -205,20 +203,17 @@ function Detalle() {
 
               {/* Acciones */}
               <div style={{ display: "flex", gap: "var(--space-sm)", flexWrap: "wrap" }}>
-                <button
-                  className="btn"
+                <Button
+                  text="🎟️ Comprar Boletos"
                   onClick={() =>
                     navigate("/comprar", { state: { movieId: pelicula.id } })
                   }
-                >
-                  🎟️ Comprar Boletos
-                </button>
-                <button
-                  className="btn btn-outline"
+                />
+                <Button
+                  text="Ver Cartelera"
+                  variant="outline"
                   onClick={() => navigate("/cartelera")}
-                >
-                  Ver Cartelera
-                </button>
+                />
               </div>
             </div>
           </div>

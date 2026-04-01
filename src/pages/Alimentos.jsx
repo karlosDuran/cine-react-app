@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Section from "../components/Section";
 import PageTransition from "../components/PageTransition";
+import Button from "../components/Button";
 import { foods } from "../data/data";
 import alimentosHero from "../assets/images/alimentos_hero.png";
 import palomitasImg from "../assets/images/palomitas.jpg";
@@ -26,7 +27,7 @@ function FoodCard({ name, image, price }) {
       <div className="food-card-content">
         <h3 className="food-card-name">{name}</h3>
         <p className="food-card-price">{price}</p>
-        <button className="btn btn-sm">Agregar</button>
+        <Button text="Agregar" size="sm" />
       </div>
     </motion.div>
   );
@@ -135,10 +136,6 @@ function Alimentos() {
           </motion.div>
         </Section>
 
-        {/* ── Footer ── */}
-        <footer className="footer">
-          <p className="footer-text">© 2026 CINEMEX — LA MAGIA DEL CINE</p>
-        </footer>
       </main>
     </PageTransition>
   );
